@@ -1,0 +1,45 @@
+<!-- filtro -->
+<!--
+<form method="get" action="vendedor/index">
+    <label for="vendedor"> vendedores </label>
+    <input type="text" name="query_text" id="vendedor">
+
+    <input type="submit" value="Buscar">
+
+</form>-->
+
+<%= form_with url: vendedor_index_path, method: :get do |form|%>
+    <%= form.text_field :query_text, value: params[:query_text]%>
+   <%end%>
+
+<br>
+<hr>
+<h1>Gestion de Vendedores</h1>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Manager</th>
+            <th>Oficina</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @vendedores.each do |vendedor|%>
+        <tr>
+            <td><%= vendedor.id %></td>
+            <td><%= vendedor.number %></td>
+            <td><%= vendedor.nombre %></td>
+            <td><%= vendedor.email%></td>
+            <td><%= vendedor.manager %></td>
+            <td><%= vendedor.oficina %></td>
+            <td></td>
+        </tr>
+    <%end%>
+        <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+    </tbody>
+</table>
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
