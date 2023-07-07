@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
+  #get 'welcome/index'
+  
   devise_for :users
   get 'vendedor/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  # get 'home/index'
+  get '/home', to: "home#index"
+  get '/welcome', to: "welcome#index"
   # Defines the root path route ("/")
-  root "vendedor#index"
+  root "welcome#index"
+
+=begin
+  unauthenticated do
+    root :to => 'welcome#index'
+  end
+
+  authenticated do
+    root :to => 'home#index'
+  end
+  end
+=end
 end
