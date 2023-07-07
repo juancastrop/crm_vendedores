@@ -76,3 +76,9 @@ gem "pg_search", "~> 2.3"
 gem "pagy", "~> 5.10"
 
 gem "devise", "~> 4.9"
+
+gem "bootstrap", "~> 5.2"
+
+gem "popper_js", "~> 2.11"
+
+gem "jquery-rails", "~> 4.6"
